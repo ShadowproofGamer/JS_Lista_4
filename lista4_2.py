@@ -2,7 +2,7 @@ import os, sys
 
 # argumenty z linii komend
 argv = sys.argv[1::]
-print(argv)
+#print(argv)
 # zebranie katalogów do tablicy
 paths = os.environ.get("PATH").split(":")
 
@@ -15,4 +15,3 @@ else:
     # wyswietlanie katalogów
     for name in paths:
         print(name)
-
