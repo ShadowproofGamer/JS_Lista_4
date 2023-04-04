@@ -19,17 +19,30 @@ def zad3_b():
         if signs_dict.get(sign): signs_dict[sign] += 1
         else: signs_dict[sign] = 1
 
-    sign:str = ""
+    sign_max:str = ""
     count=0
     for entry in signs_dict:
         temp_c = signs_dict[entry]
         if temp_c>count:
-            sign=entry
+            sign_max=entry
             count=temp_c
 
-    print("' "+sign+" '", count)
+    print("' "+sign_max+" '", count)
 
+    #najliczniejsze słowo
+    words_dict={}
+    for word in all_content_tab.strip():
+        if words_dict.get(word): words_dict[word]+=1
+        else: words_dict[word] = 1
 
+    word_max:str = ""
+    count_w=0
+    for entry in words_dict:
+        temp_c = words_dict[entry]
+        if temp_c>count_w:
+            word_max=entry
+            count_w=temp_c
+    print("' "+word_max+" '", count_w)
 # a
 # pobiera sciezke do pliku z wejscia standardowego:
 try:
