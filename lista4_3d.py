@@ -1,8 +1,10 @@
-import os, sys
+import sys
 from subprocess import Popen, PIPE
 
+# argumenty z linii komend
 argv = sys.argv[1::]
 
+# wyniki działania procesu
 lines = []
 
 for i in argv:
@@ -12,15 +14,16 @@ for i in argv:
     lines.append(process.stdout.readline().strip())
 
 
-
-results = []
 #sign_count, word_count, lines_count, sign_max, count, word_max, count_w
+results = []
+
+# tworzy słowniki wyników i dodaje do listy
 for line in lines:
     temp = line.split("\t")
     # przekształca dane wyjściowe procesu na słownik jeżeli nie wystąpił błąd
     if not temp[0].__contains__("#"): results.append({"sign_count":int(temp[0]), "word_count":int(temp[1]), "lines_count":int(temp[2]), "sign_max":temp[3], "word_max":temp[4]})
 
-
+# poszczególne wyniki
 files = 0
 signs = 0
 words = 0
@@ -29,8 +32,8 @@ signs_dict = {}
 words_dict = {}
 sign = ""
 word = ""
+# podliczanie wyników
 for dictionary in results:
-    
     files+=1
     signs+=dictionary["sign_count"]
     words+=dictionary["word_count"]

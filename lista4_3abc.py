@@ -2,7 +2,7 @@ def zad3_b():
     # b
     f = open(file_path, "r")
     all_content = f.read()
-    #print("N f")
+    #print(file_path)
 
     # liczba znaków
     sign_count = len(all_content.strip())
@@ -13,7 +13,7 @@ def zad3_b():
 
 
     # liczba wierszy
-    lines_count = len(all_content.split("\n"))
+    lines_count = len(all_content.split("\n"))-1
  
 
     # najliczniejszy znak
@@ -21,7 +21,7 @@ def zad3_b():
     for sign in all_content:
         if signs_dict.get(sign): signs_dict[sign] += 1
         else: signs_dict[sign] = 1
-    # zakładam, że spacja (znak biały) nie jest znakiem, więc usówam ze słownika
+    # zakładam, że spacja (znak biały) nie jest znakiem, więc usuwam ze słownika
     signs_dict.pop(' ')
 
     # sprawdzanie najliczniejszego znaku
